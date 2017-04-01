@@ -6,7 +6,7 @@
 # =============================================================================
 FROM centos:7.3.1611
 
-MAINTAINER James Deathe <james.deathe@gmail.com>
+MAINTAINER Justin.h <justin@5nas.cc>
 
 # -----------------------------------------------------------------------------
 # Base Install + Import the RPM GPG keys for Repositories
@@ -71,12 +71,12 @@ RUN ln -sf \
 # -----------------------------------------------------------------------------
 # Configure SSH for non-root public key authentication
 # -----------------------------------------------------------------------------
-RUN sed -i \
-	-e 's~^PasswordAuthentication yes~PasswordAuthentication no~g' \
-	-e 's~^#PermitRootLogin yes~PermitRootLogin no~g' \
-	-e 's~^#UseDNS yes~UseDNS no~g' \
-	-e 's~^\(.*\)/usr/libexec/openssh/sftp-server$~\1internal-sftp~g' \
-	/etc/ssh/sshd_config
+# RUN sed -i \
+# 	-e 's~^PasswordAuthentication yes~PasswordAuthentication no~g' \
+# 	-e 's~^#PermitRootLogin yes~PermitRootLogin no~g' \
+# 	-e 's~^#UseDNS yes~UseDNS no~g' \
+# 	-e 's~^\(.*\)/usr/libexec/openssh/sftp-server$~\1internal-sftp~g' \
+# 	/etc/ssh/sshd_config
 
 # -----------------------------------------------------------------------------
 # Enable the wheel sudoers group
